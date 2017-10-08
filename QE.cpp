@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void QE(double a, double b, double c)
+int QE(double a, double b, double c)
 {
 	float x;
 	
@@ -12,14 +12,14 @@ void QE(double a, double b, double c)
 	{
 		x=-c/b;
 		cout<<"x= "<< x <<endl;
-		return;
+		return 1;
 	}
 	
 	if(c==0)
 	{
 		x=-b/a;
 		cout<<"x= "<<x<<endl;
-		return;
+		return 1;
 	}	
 	
 	else
@@ -27,23 +27,22 @@ void QE(double a, double b, double c)
 		float d;
 		
 		d = b*b-4*a*c;
-		cout<<d<<endl; //test
 	
 		if(d<0)   //if d<0 then the quadratic equation has no solution
 		{
-			puts("The equation has no solution");
-			return;
+			cout<<-1<<endl;
+			return -1;
 		}
 		
 		if(d==0)  //if d=0 then the quadratic equation has only one solution
 		{
 			x=-b/(2*a);
-			cout << "x= " << x << endl;
+			cout << 1 << " "<< x << endl;
 			
 			float s = (a*(x*x)+b*x+c);
 			
-			cout << "Solution is " << s << endl;
-			return;
+			//cout << "Solution is " << s << endl;
+			return 1;
 		}
 		
 		if(d>0)   //if d=0 then the quadratic equation has TWO solution
@@ -51,13 +50,18 @@ void QE(double a, double b, double c)
 			float x1=(-b+sqrt(d))/(2*a);
 			float x2=(-b-sqrt(d))/(2*a);
 			
-			cout<< "x1 = " << x1 << ", " << "x2 = " << x2 << endl;
- 			
+		//	cout<< "x1 = " << x1 << ", " << "x2 = " << x2 << endl;
+ 			cout << 2 << " ";
+			if(x1<x2) cout << x1 << " " << x2 << endl;
+			if(x2<x1) cout << x2 << " " << x1 << endl;
+			
 			float s1 = (a*(x1*x1)+b*x1+c);
 			float s2 = (a*(x2*x2)+b*x2+c);
 			
-			cout << "First solution is " << s1 << "\nSecond solution is " << s2 << endl;
-			return;
+			//if(s1<s2) cout << s1 << " " << s2 << endl;
+			//if(s2<s1) cout << s2 << " " << s1 << endl;
+			
+			return 2;
 		}
 	}
 	
